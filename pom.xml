@@ -9,13 +9,15 @@
 	<description>Project template for developing servlet-based web apps</description>
 
 	<properties>
-		<!-- Tomcatin versionumero -->
+		<!-- Versionumerot -->
 		<tomcat.version>8.5.73</tomcat.version>
+		<junit.jupiter.version>5.8.1</junit.jupiter.version>
+		<sqlite.driver.version>3.34.0</sqlite.driver.version>
+		<jstl.api.version>1.2</jstl.api.version>
 
 		<!-- Javan versionumero -->
 		<maven.compiler.target>11</maven.compiler.target>
 		<maven.compiler.source>11</maven.compiler.source>
-		<junit.jupiter.version>5.8.1</junit.jupiter.version>
 
 		<!-- Projektin merkistökoodaus -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -61,6 +63,17 @@
 			<version>${junit.jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+        	<groupId>org.xerial</groupId>
+        	<artifactId>sqlite-jdbc</artifactId>
+        	<version>${sqlite.driver.version}</version>
+    	</dependency>
+    	<dependency>
+        	<groupId>javax.servlet</groupId>
+        	<artifactId>jstl</artifactId>
+        	<version>${jstl.api.version}</version>
+    	</dependency>
 	</dependencies>
 
 	<build>
