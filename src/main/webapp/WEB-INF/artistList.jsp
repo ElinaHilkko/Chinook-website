@@ -18,7 +18,8 @@
 	<ol>
 		<c:forEach items="${ artists }" var="artist">
 			<li>
-				<c:out value="${ artist.getName() }" />
+				<!-- <c:out value="${ artist.getName() }" /> -->
+				<a href=/albums?ArtistId=${ artist.getId() }>${ artist.getName() }</a>
 			</li>
 		</c:forEach>
 	</ol>

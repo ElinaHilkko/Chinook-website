@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Album;
 import model.Artist;
 
 public class JDBCArtistDao implements ArtistDao {
@@ -39,13 +40,23 @@ public class JDBCArtistDao implements ArtistDao {
 		}
 		return allArtists;
 	}
-	
+
+	public Artist getArtistByArtistId(long artistId) {
+		List<Artist> allArtists = this.getAllArtist();
+		for (Artist artist : allArtists) {
+			if (artistId == artist.getId()) {
+				return artist;
+			}
+		}
+		return null;
+	}
+
 	public boolean addArtist(Artist newArtist) {
 		String add = "INSERT INTO Artist (name) VALUES (?)";
-		
+
 		Connection connection = null;
 		PreparedStatement statement = null;
-		
+
 		try {
 			connection = db.connect();
 			statement = connection.prepareStatement(add);
