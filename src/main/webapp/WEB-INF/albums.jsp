@@ -17,5 +17,7 @@
 			</li>
 		</c:forEach>
 	</ul>
+	
+	<a href="/artistlist">Back</a>
 </body>
 </html>

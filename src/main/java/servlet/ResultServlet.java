@@ -14,26 +14,23 @@ import database.JDBCArtistDao;
 import model.Album;
 import model.Artist;
 
-@WebServlet("/artistlist")
-public class ArtistListServlet extends HttpServlet {
-
+@WebServlet("/results")
+public class ResultServlet extends HttpServlet {
+	
 	private JDBCArtistDao artistDao = new JDBCArtistDao();
 	private JDBCAlbumDao albumDao = new JDBCAlbumDao();
-
-	@Override
-	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<Artist> artists = this.artistDao.getAllArtist();
-		
-		req.setAttribute("artists", artists);
-		req.getRequestDispatcher("/WEB-INF/artistList.jsp").forward(req, resp);
-	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String artistName = req.getParameter("addedName");
-
-			Artist newArtist = new Artist(artistName);
-			artistDao.addArtist(newArtist);
-			resp.sendRedirect("/artistlist");
+		String nameOrTitle = req.getParameter("nameOrTitle");
+		
+		List<Artist> foundArtists = artistDao.getArtistsByName(nameOrTitle);
+		List<Album> foundAlbums = albumDao.getAlbumsByTitle(nameOrTitle);
+		
+		req.setAttribute("artists", foundArtists);
+		req.setAttribute("albums", foundAlbums);
+		
+		req.getRequestDispatcher("/WEB-INF/results.jsp").forward(req, resp);
 	}
+
 }

@@ -2,7 +2,7 @@ package model;
 
 public class Artist {
 
-	private long id;
+	private long artistId;
 	private String name;
 
 	public Artist(String name) {
@@ -10,17 +10,17 @@ public class Artist {
 		this.name = name;
 	}
 
-	public Artist(long id, String name) {
-		this.id = id;
+	public Artist(long artistId, String name) {
+		this.artistId = artistId;
 		this.name = name;
 	}
 
-	public long getId() {
-		return id;
+	public long getArtistId() {
+		return artistId;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setArtistId(long artistId) {
+		this.artistId = artistId;
 	}
 
 	public String getName() {

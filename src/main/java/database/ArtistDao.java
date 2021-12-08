@@ -10,7 +10,7 @@ public interface ArtistDao {
 	
 	public boolean addArtist(Artist newArtist);
 	
-	//public ShoppingListItem getItem(long id);
-
-	//public boolean removeItem(ShoppingListItem item);
+	public Artist getArtistByArtistId(long artistId);
+	
+	public List<Artist> getArtistsByName(String name); 
 }

@@ -9,10 +9,11 @@ import java.util.List;
 
 import model.Album;
 
-public class JDBCAlbumDao {
+public class JDBCAlbumDao implements AlbumDao {
 	
 	private Database db = new Database();
 	
+	@Override
 	public List<Album> getAlbumsByArtistId(long artistId) {
 		String selectAlbums = "SELECT AlbumId, Title, ArtistId FROM Album WHERE ArtistId = ? ORDER BY Title ASC;";
 
@@ -40,6 +41,34 @@ public class JDBCAlbumDao {
 			this.db.close(connection, statement, results);
 		}
 		return albums;
+	}
+	
+	@Override
+	public List<Album> getAlbumsByTitle(String title) {
+		String select = "SELECT AlbumId, Title, ArtistId  FROM Album WHERE Title LIKE ? ORDER BY Title ASC";
+		
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet results = null;
+		
+		List<Album> albums = new ArrayList<>();
+		
+		try {
+			connection = db.connect();
+			statement = connection.prepareStatement(select);
+			statement.setString(1, "%" + title + "%");
+			results = statement.executeQuery();
+			while (results.next()) {
+				Album album = new Album(results.getLong("AlbumId"), results.getString("Title"), results.getLong("ArtistId"));
+				albums.add(album);
+			} 
+			return albums;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			this.db.close(connection, statement, results);
+		}
+		return null;
 	}
 
 }
