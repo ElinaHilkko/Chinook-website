@@ -8,7 +8,7 @@
 	<style> ul { max-width: 400px; } ul li button { float: right;} </style>
 </head>
 <body>
-	<h1>Albums of ${ artist.getName() }</h1>
+	<h1>Albums of <c:out value="${ artist.getName() }" /></h1>
 
 	<ul>
 		<c:forEach items="${ albums }" var="albums">
@@ -18,6 +18,6 @@
 		</c:forEach>
 	</ul>
 	
-	<a href="/artistlist">Back</a>
+	<a href="/artistlist">Return to All Artist</a>
 </body>
 </html>

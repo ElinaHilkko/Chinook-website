@@ -9,5 +9,4 @@ public interface AlbumDao {
 	public List<Album> getAlbumsByArtistId(long artistId);
 	
 	public List<Album> getAlbumsByTitle(String title);
-
 }

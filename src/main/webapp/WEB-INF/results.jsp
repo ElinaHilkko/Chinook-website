@@ -14,8 +14,7 @@
 	<ul>
 		<c:forEach items="${ artists }" var="artist">
 			<li>
-				<!-- <c:out value="${ artist.getName() }" /> -->
-				<a href=/albums?ArtistId=${ artist.getArtistId() }>${ artist.getName() }</a>
+				<a href=/albums?ArtistId=<c:out value='${ artist.getArtistId() }'/>><c:out value="${ artist.getName() }" /></a>
 			</li>
 		</c:forEach>
 	</ul>
@@ -24,12 +23,11 @@
 	<ul>
 		<c:forEach items="${ albums }" var="album">
 			<li>
-				<!-- <c:out value="${ artist.getName() }" /> -->
-				<a href=/albums?ArtistId=${ album.getArtistId() }>${ album.getTitle() }</a>
+				<a href=/albums?ArtistId=<c:out value='${ album.getArtistId() }'/>><c:out value="${ album.getTitle() }" /></a>
 			</li>
 		</c:forEach>
 	</ul>
 	
-	<a href="/artistlist">Back</a>
+	<a href="/artistlist">Return to All Artist</a>
 </body>
 </html>

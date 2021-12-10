@@ -23,6 +23,9 @@ public class AlbumsServlet extends HttpServlet{
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		long artistId = Integer.parseInt(req.getParameter("ArtistId"));
+		/*if (artistId == null) {
+			
+		}*/
 		List<Album> albums = albumDao.getAlbumsByArtistId(artistId);
 		Artist artist = artistDao.getArtistByArtistId(artistId);
 		
