@@ -41,6 +41,7 @@ embedded-tomcat
 │   │       └───WEB-INF
 │   │               albums.jsp
 │   │               artistList.jsp
+│   │               notFound.jsp
 │   │               results.jsp
 │   │
 │   └───test
@@ -70,11 +71,12 @@ JDBCArtistDao.java			| Toteuttaa ArtistDao-rajapinnan ja sisältää konkreettis
 Main.java					| Luokka Tomcat-palvelimen käynnistämiseksi
 Album.java					| Model-luokka, joka kuvastaa tietokannan albumi-taulua sisältäen samat kentät, jotka ovat Chinook-tietokannassa	
 Artist.java					| Model-luokka, joka kuvastaa tietokannan artisti-taulua sisältäen samat kentät, jotka ovat Chinook-tietokannassa
-AlbumServlet.java			| HTTP-liikennettä tukeva Java-luokka, joka näyttää tietyn artistin albumiluettelon
+AlbumServlet.java			| HTTP-liikennettä tukeva Java-luokka, joka näyttää valitun artistin albumiluettelon
 ArtistListServlet.java		| HTTP-liikennettä tukeva Java-luokka, joka näyttää artistilistauksen, lisäksi ominaisuutena on artistin lisääminen ja 							| artisti-/albumihaku
 ResultServlet.java			| HTTP-liikennettä tukeva Java-luokka, joka näyttää artisti-/albumihaun tulokset
-albums.jsp					| AlbumServletin käyttämä sivupohja
+albums.jsp					| AlbumServletin käyttämä sivupohja, kun artistiId löytyy Chinook-tietokannasta
 artistList.jsp				| ArtistListServletin käyttämä sivupohja
+notFound.jsp				| AlbumServletin käyttämä sivupohja, kun artistiId on virheellinen
 results.jsp					| ResultServletin käyttämä sivupohja
 JDBCAlbumDaoTest.java		| JDBCAlbumDao-luokan JUnit-testit
 JDBCArtistDaoTest.java		| JDBCArtistDao-luokan JUnit-testit

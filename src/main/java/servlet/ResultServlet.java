@@ -14,6 +14,7 @@ import database.JDBCArtistDao;
 import model.Album;
 import model.Artist;
 
+@SuppressWarnings("serial")
 @WebServlet("/results")
 public class ResultServlet extends HttpServlet {
 	
@@ -32,5 +33,4 @@ public class ResultServlet extends HttpServlet {
 		
 		req.getRequestDispatcher("/WEB-INF/results.jsp").forward(req, resp);
 	}
-
 }

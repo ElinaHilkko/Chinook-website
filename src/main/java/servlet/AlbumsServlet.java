@@ -14,6 +14,7 @@ import database.JDBCArtistDao;
 import model.Album;
 import model.Artist;
 
+@SuppressWarnings("serial")
 @WebServlet("/albums")
 public class AlbumsServlet extends HttpServlet{
 	
@@ -23,15 +24,15 @@ public class AlbumsServlet extends HttpServlet{
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		long artistId = Integer.parseInt(req.getParameter("ArtistId"));
-		/*if (artistId == null) {
-			
-		}*/
 		List<Album> albums = albumDao.getAlbumsByArtistId(artistId);
 		Artist artist = artistDao.getArtistByArtistId(artistId);
-		
-		req.setAttribute("albums", albums);
-		req.setAttribute("artist", artist);
-		req.getRequestDispatcher("/WEB-INF/albums.jsp").forward(req, resp);
+		if(albums.isEmpty() && artist == null) {
+			req.getRequestDispatcher("/WEB-INF/notFound.jsp").forward(req, resp);
+		}
+		else {
+			req.setAttribute("albums", albums);
+			req.setAttribute("artist", artist);
+			req.getRequestDispatcher("/WEB-INF/albums.jsp").forward(req, resp);
+		}
 	}
-
 }

@@ -9,16 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import database.JDBCAlbumDao;
 import database.JDBCArtistDao;
-import model.Album;
 import model.Artist;
 
+@SuppressWarnings("serial")
 @WebServlet("/artistlist")
 public class ArtistListServlet extends HttpServlet {
 
 	private JDBCArtistDao artistDao = new JDBCArtistDao();
-	private JDBCAlbumDao albumDao = new JDBCAlbumDao();
 
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

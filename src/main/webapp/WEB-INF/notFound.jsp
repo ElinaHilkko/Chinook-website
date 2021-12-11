@@ -7,15 +7,7 @@
 	<style> ul { max-width: 400px; } ul li button { float: right;} </style>
 </head>
 <body>
-	<h1>Albums of <c:out value="${ artist.getName() }" /></h1>
-
-	<ul>
-		<c:forEach items="${ albums }" var="albums">
-			<li>
-				<c:out value="${ albums.getTitle() }" />
-			</li>
-		</c:forEach>
-	</ul>
+	<h1>Artist not found</h1>
 	
 	<a href="/artistlist">Return to All Artist</a>
 </body>

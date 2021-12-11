@@ -70,5 +70,4 @@ public class JDBCAlbumDao implements AlbumDao {
 		}
 		return null;
 	}
-
 }

@@ -1,0 +1,2 @@
+Projekti löytyy GitHubista.
+Versionhallinnan dokumentointi löytyy osoitteesta: https://github.com/ElinaHilkko/embedded-tomcat-chinook

@@ -2,7 +2,6 @@
 <html>
 <head>
 	<title>Artist List</title>
-	<!--  <script src="/scripts/app.js"></script>	-->
 	
 	<link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura-dark-solarized.css" type="text/css">
 	<style> ul { max-width: 400px; } ul li button { float: right;} </style>
